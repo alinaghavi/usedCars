@@ -1,0 +1,66 @@
+
+.NewAdProgress {
+    background: #f7f7f7;
+    max-width: 960px;
+    width: 100%;
+    display: block;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    border-radius: var(--border-r-3);
+    padding: 20px 86px 20px 66px;
+    z-index: 99
+}
+
+.ios .NewAdProgress.fixed {
+    position: fixed
+}
+
+#XD-BodyContainer.ios {
+    transform: none !important
+}
+
+.NewAdProgress h2 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center
+}
+
+.NewAdProgressBack {
+    width: 100%;
+    background-color: #dbdbdb;
+    border-radius: var(--border-r-3);
+    position: relative
+}
+
+.NewAdProgressBack::before, .NewAdProgressBack::after {
+    content: "";
+    position: absolute
+}
+
+.NewAdProgressBack::before {
+    right: -4.9rem;
+    top: -1rem;
+    background: transparent url(../../../assets/img/register/start-point.svg) no-repeat center;
+    width: 68px;
+    height: 35px;
+    background-size: 60px;
+}
+
+.NewAdProgressBack::after {
+    left: -3.4rem;
+    top: -1.7rem;
+    background: transparent url(../../../assets/img/register/end-point.svg) no-repeat center;
+    width: 44px;
+    height: 42px;
+    background-size: 38px
+}
+
+.NewAdProgressbar {
+    width: 6%;
+    background-color: var(--bama-color);
+    height: 10px;
+    border-radius: var(--border-r-3);
+    max-width: 100%
+}
