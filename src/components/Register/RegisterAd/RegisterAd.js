@@ -27,17 +27,27 @@ class RegisterAd extends Component {
     console.log("Component did mount");
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    // this.props.progressValue(50);
-    console.log("Component did Updated", this.props);
-  }
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //
+  //   console.log("Component did Updated", this.props);
+  // }
 
   brandsChangeHandler = (event) => {
     this.setState({ brandsValue: event.target.value });
+    if (event.target.value > 0) {
+      this.props.progressValue(20);
+    } else {
+      this.props.progressValue(10);
+    }
   };
 
   modelsChangeHandler = (event) => {
     this.setState({ modelsValue: event.target.value });
+    if (event.target.value > 0) {
+      this.props.progressValue(30);
+    } else {
+      this.props.progressValue(20);
+    }
   };
 
   render() {
