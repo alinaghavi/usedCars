@@ -9,15 +9,8 @@
     top: 0;
     border-radius: var(--border-r-3);
     padding: 20px 86px 20px 66px;
-    z-index: 99
-}
-
-.ios .NewAdProgress.fixed {
-    position: fixed
-}
-
-#XD-BodyContainer.ios {
-    transform: none !important
+    z-index: 99;
+    margin-bottom: 40px;
 }
 
 .NewAdProgress h2 {
@@ -62,5 +55,6 @@
     background-color: var(--bama-color);
     height: 10px;
     border-radius: var(--border-r-3);
-    max-width: 100%
+    max-width: 100%;
+    transition: all ease .6s;
 }

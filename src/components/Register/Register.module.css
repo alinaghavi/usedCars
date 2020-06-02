@@ -1,11 +1,5 @@
+.InsertNewAdContent{
 
-.InsertNewAdContent, .EditNewAdContent {
-    margin: 0;
-    padding: 0;
-    direction: rtl;
-    list-style: none;
-    font-size: 100%;
-    color: var(--almost-black)
 }
 
 .InsertNewAdContent * {
@@ -15,46 +9,5 @@
     outline: none !important
 }
 
-.InsertNewAdContent a {
-    text-decoration: none
-}
-
-.InsertNewAdContent a.cyan:hover {
-    color: var(--Cyan)
-}
-
-.InsertNewAdContent p {
-    text-align: right;
-    line-height: 1.8;
-    font-size: 14px
-}
-
-.InsertNewAdContent h3 {
-    font-size: 15px;
-    font-weight: bold;
-    color: #333
-}
-
-.InsertNewAdContent ul li {
-    list-style: none;
-    height: 100%
-}
-
-.InsertNewAdContent select {
-    position: relative;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -o-appearance: none;
-    -ms-appearance: none;
-    height: 45px
-}
-
-.InsertNewAdContent select[disabled], .InsertNewAdContent input[disabled] {
-    background-color: #f0f0f0
-}
-
-.InsertNewAdContent input[type="radio"], .InsertNewAdContent input[type="checkbox"] {
-    display: none
-}
 
 

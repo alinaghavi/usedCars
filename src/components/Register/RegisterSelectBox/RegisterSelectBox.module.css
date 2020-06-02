@@ -1,0 +1,54 @@
+select[disabled], .InsertNewAdContent input[disabled] {
+    background-color: #f0f0f0
+}
+
+.SelectBoxWrapper{
+    position: relative;
+    margin-bottom: 15px;
+}
+
+select{
+    margin: 0;
+    color: var(--almost-black);
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 2;
+    position: relative;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    height: 45px;
+    width: 100%;
+    border: 1px solid var(--light-grey);
+    border-radius: var(--border-r-3);
+    padding: .5rem .8rem !important;
+}
+
+.SelectBoxWrapper:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 22px;
+    top: 18px;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath fill='%23444' d='M8.8 2.1L5 5.9L1.2 2.1L0 3.3l5 5l5-5L8.8 2.1z'/%3E%3C/svg%3E");
+    background-position: center center;
+    background-size: 10px 10px;
+    background-repeat: no-repeat
+}
+
+.SelectedTick {
+    position: absolute;
+    border: 3px solid var(--bama-color);
+    border-right: none;
+    border-top: none;
+    width: 22px;
+    height: 10px;
+    left: -35px;
+    top: 45%;
+    pointer-events: none;
+    transform: translateY(-50%) rotate(-45deg);
+    /*display: none;*/
+}
