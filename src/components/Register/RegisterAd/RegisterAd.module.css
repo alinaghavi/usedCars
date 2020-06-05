@@ -1,7 +1,21 @@
-.NewAdContainer {
-
+section{
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 20px;
+}
+.KilometerSection{
+    width:50%;
+}
+.BrandSection {
 }
 
-.BrandSection {
+.HalfColumns{
+    flex: 1 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
 
+.HalfColumns > div{
+    flex: 1 35%;
+    margin-left: 60px;
 }

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import styles from "./RegisterSelectBox.module.css";
 
@@ -11,19 +11,28 @@ const RegisterSelectBox = (props) => {
     );
   });
   const SelectedTick = props.currentValue > 0;
-  return (
-    <Fragment>
-      <div className={styles.SelectBoxWrapper}>
+  if (props.isHidable && props.options.length === 1) {
+    return null;
+  } else
+    return (
+      <div
+        className={styles.SelectBoxWrapper}
+        // style={
+        //   props.display === "half"
+        //     ? { flex: "1 30%", marginLeft: "50px" }
+        //     : null
+        // }
+      >
         <select
           onChange={(event) => props.changed(event)}
           value={props.currentValue}
+          disabled={props.isDisabled}
         >
           {selectBoxOptions}
         </select>
         {SelectedTick ? <i className={styles.SelectedTick} /> : null}
       </div>
-    </Fragment>
-  );
+    );
 };
 
 export default RegisterSelectBox;

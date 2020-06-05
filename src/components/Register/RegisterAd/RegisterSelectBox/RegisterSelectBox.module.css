@@ -1,10 +1,12 @@
 select[disabled], .InsertNewAdContent input[disabled] {
-    background-color: #f0f0f0
+    background-color: #f0f0f0;
+    cursor: not-allowed;
 }
 
 .SelectBoxWrapper{
     position: relative;
     margin-bottom: 15px;
+    flex: 1 100%;
 }
 
 select{

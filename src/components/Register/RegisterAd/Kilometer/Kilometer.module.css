@@ -1,0 +1,50 @@
+.BtnsWrapper{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    flex: 1 100%;
+    margin-top: 70px;
+}
+.KilometerBTN{
+    border-radius: var(--border-r-3);
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    width: 120px;
+    height: 100%;
+    line-height: 3;
+    border: 1px solid var(--light-grey);
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.KilometerTextBoxWrapper{
+    display: flex;
+    border: 1px solid var(--light-grey);
+    width: calc(100% - 60px);
+}
+
+.KilometerTextBox{
+    padding-right: 10px;
+    height: 43px;
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--almost-black);
+    width: calc(100% - 140px);
+    box-sizing: border-box;
+    border-radius: 0 .25rem .25rem 0;
+    border:0;
+
+}
+
+.KilometerTextBoxWrapper span{
+    background: #eeeeee;
+    text-align: center;
+    align-self: center;
+    border-right: 1px solid var(--light-grey);
+    height: 43px;
+    display: block;
+    line-height: 3;
+    width: 140px;
+}
