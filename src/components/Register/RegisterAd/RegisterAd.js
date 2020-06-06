@@ -17,12 +17,7 @@ class RegisterAd extends Component {
     ],
     brandValue: 0,
     brandDisabled: false,
-    models: [
-      { key: "انتخاب مدل", value: 0 },
-      { key: "یاریس", value: 1 },
-      { key: "پریوس", value: 2 },
-      { key: "کمری", value: 3 },
-    ],
+    models: [{ key: "انتخاب مدل", value: 0 }],
     modelValue: 0,
     modelDisabled: true,
     years: [
@@ -81,23 +76,52 @@ class RegisterAd extends Component {
 
   setProgressValue = (value) => {};
   brandsChangeHandler = (event) => {
-    this.setState({ brandValue: event.target.value });
-    this.setState({
-      modelValue: 0,
-      modelDisabled: true,
-      yearValue: 0,
-      yearDisabled: true,
-      tipValue: 0,
-      tipDisabled: true,
-      engineValue: 0,
-      engineDisabled: true,
-      gearValue: 0,
-      gearDisabled: true,
-      differentialValue: 0,
-      differentialDisabled: true,
-      fuelValue: 0,
-      fuelDisabled: true,
-    });
+    this.setState(
+      {
+        brandValue: event.target.value,
+        modelValue: 0,
+        models: [{ key: "انتخاب مدل", value: 0 }],
+        modelDisabled: true,
+        yearValue: 0,
+        yearDisabled: true,
+        tipValue: 0,
+        tipDisabled: true,
+        engineValue: 0,
+        engineDisabled: true,
+        gearValue: 0,
+        gearDisabled: true,
+        differentialValue: 0,
+        differentialDisabled: true,
+        fuelValue: 0,
+        fuelDisabled: true,
+      },
+      () => {
+        fetch(
+          `http://10.1.3.89:3535/API/Sales/GetModelsByBrand/${this.state.brandValue}`
+        )
+          .then((res) => res.json())
+          .then(
+            (models) => {
+              const oldBrands = this.state.models;
+              let newBrands = models.map((model) => {
+                return {
+                  key: model["name"],
+                  value: model["englishname"],
+                };
+              });
+
+              let myNewBrands = [{ key: "انتخاب مدل", value: 0 }, ...newBrands];
+              this.setState({
+                models: myNewBrands,
+              });
+            },
+
+            (error) => {
+              console.log("Error ", error.message);
+            }
+          );
+      }
+    );
 
     if (event.target.value > 0) {
       this.props.progressValue(20);
@@ -126,7 +150,7 @@ class RegisterAd extends Component {
       fuelDisabled: true,
     });
 
-    if (event.target.value > 0) {
+    if (event.target.value !== 0) {
       this.props.progressValue(30);
       this.setState({
         yearDisabled: false,
@@ -325,7 +349,7 @@ class RegisterAd extends Component {
           </div>
         </section>
         <section className={styles.KilometerSection}>
-          <Kilometer />
+          <Kilometer progressValue={this.props.progressValue} />
         </section>
       </div>
     );

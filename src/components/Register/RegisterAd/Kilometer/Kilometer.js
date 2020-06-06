@@ -13,6 +13,7 @@ class Kilometer extends Component {
       kilometerNumber: 0,
       selectedTick: true,
     });
+    this.props.progressValue(100);
   };
 
   NonZeroKilometerHandler = () => {
@@ -20,12 +21,14 @@ class Kilometer extends Component {
       kilometerNumber: "",
       selectedTick: false,
     });
+    this.props.progressValue(90);
   };
   changeKilometerTextBoxHandler = (input) => {
     this.setState({
       kilometerNumber: +input.target.value,
       selectedTick: true,
     });
+    this.props.progressValue(100);
   };
   render() {
     return (
@@ -57,10 +60,10 @@ class Kilometer extends Component {
         <div className={styles.KilometerTextBoxWrapper}>
           <input
             className={styles.KilometerTextBox}
-            type="number"
+            type="tel"
             placeholder="کارکرده"
-            maxLength="7"
             min={0}
+            maxLength={7}
             value={this.state.kilometerNumber}
             onChange={this.changeKilometerTextBoxHandler}
           />
