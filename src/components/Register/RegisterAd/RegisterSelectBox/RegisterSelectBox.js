@@ -10,7 +10,8 @@ const RegisterSelectBox = (props) => {
       </option>
     );
   });
-  const SelectedTick = props.currentValue > 0;
+  console.log("Current Value Is", props.currentValue);
+  const SelectedTick = props.currentValue !== 0;
   if (props.isHidable && props.options.length === 1) {
     return null;
   } else
