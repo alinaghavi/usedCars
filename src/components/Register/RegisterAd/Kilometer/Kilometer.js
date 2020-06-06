@@ -5,22 +5,26 @@ import styles from "./Kilometer.module.css";
 class Kilometer extends Component {
   state = {
     kilometerNumber: "",
+    selectedTick: false,
   };
 
   ZeroKilometerHandler = () => {
     this.setState({
       kilometerNumber: 0,
+      selectedTick: true,
     });
   };
 
   NonZeroKilometerHandler = () => {
     this.setState({
       kilometerNumber: "",
+      selectedTick: false,
     });
   };
   changeKilometerTextBoxHandler = (input) => {
     this.setState({
       kilometerNumber: +input.target.value,
+      selectedTick: true,
     });
   };
   render() {
@@ -56,11 +60,14 @@ class Kilometer extends Component {
             type="number"
             placeholder="کارکرده"
             maxLength="7"
+            min={0}
             value={this.state.kilometerNumber}
             onChange={this.changeKilometerTextBoxHandler}
           />
           <span>کیلومتر</span>
-          {/*<i className="selected-tick" style="display: none;"></i>*/}
+          {this.state.selectedTick ? (
+            <i className={styles.SelectedTick} />
+          ) : null}
         </div>
       </Fragment>
     );

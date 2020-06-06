@@ -52,5 +52,4 @@ select{
     top: 45%;
     pointer-events: none;
     transform: translateY(-50%) rotate(-45deg);
-    /*display: none;*/
 }

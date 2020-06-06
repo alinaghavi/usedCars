@@ -15,14 +15,7 @@ const RegisterSelectBox = (props) => {
     return null;
   } else
     return (
-      <div
-        className={styles.SelectBoxWrapper}
-        // style={
-        //   props.display === "half"
-        //     ? { flex: "1 30%", marginLeft: "50px" }
-        //     : null
-        // }
-      >
+      <div className={styles.SelectBoxWrapper}>
         <select
           onChange={(event) => props.changed(event)}
           value={props.currentValue}

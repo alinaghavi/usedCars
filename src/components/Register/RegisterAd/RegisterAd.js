@@ -79,6 +79,7 @@ class RegisterAd extends Component {
     fuelDisabled: true,
   };
 
+  setProgressValue = (value) => {};
   brandsChangeHandler = (event) => {
     this.setState({ brandValue: event.target.value });
     this.setState({
