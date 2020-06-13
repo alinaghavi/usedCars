@@ -17,14 +17,10 @@ class Register extends Component {
   render() {
     return (
       <Fragment>
-        <section>
-          <div className={styles.InsertNewAdContent}>
-            <ProgressBar
-              title="ثبت آگهی خودرو در یک دقیقه"
-              currentValue={this.state.progressValue}
-            />
-          </div>
-        </section>
+        <ProgressBar
+          title="ثبت آگهی خودرو در یک دقیقه"
+          currentValue={this.state.progressValue}
+        />
         <RegisterAd progressValue={this.updateProgress} />
       </Fragment>
     );
