@@ -1,24 +1,42 @@
-.Toolbar {
-    height: 56px;
-    width: 100%;
+.ToolbarWrapper{
+    height: 95px;
+    width:100%;
+    background-color: #ffffff;
+}
+.ToolbarWrapper .Toolbar {
+    height: 65px;
+    width:100%;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #703B09;
+    right: 0;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    z-index: 110;
+}
+.ToolbarWrapper .Toolbar .TopBar{
+    height: 40px;
+    width: 100%;
+    background-color: #333333;
+}
+.ToolbarWrapper .BottomBar {
+    height: 65px;
+    width:100%;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    box-sizing: border-box;
-    z-index: 90;
 }
-
-.Toolbar nav {
+.Toolbar .BottomBar nav {
     height: 100%;
+    flex: 1;
 }
 
 .Logo {
-    height: 80%;
+    height: 100%;
 }
 
 @media (max-width: 500px) {

@@ -11,12 +11,12 @@
     transform: translateY(-50%) rotate(-45deg);
     /*display: none;*/
 }
-.BtnsWrapper{
+.BtnWrapper{
     display: flex;
     justify-content: flex-start;
     margin-bottom: 20px;
     flex: 1 100%;
-    margin-top: 70px;
+    margin-top: 30px;
 }
 .KilometerBTN{
     border-radius: var(--border-r-3);

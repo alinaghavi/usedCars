@@ -2,9 +2,8 @@ import React, { Component } from "react";
 
 import styles from "./RegisterAd.module.css";
 
-import RegisterSelectBox from "./RegisterSelectBox/RegisterSelectBox";
-
-import Kilometer from "./Kilometer/Kilometer";
+import UsedCarsSelectBox from "../../UI/UsedCarsSelectBox/UsedCarsSelectBox";
+import Kilometer from "../../UI/Kilometer/Kilometer";
 
 class RegisterAd extends Component {
   state = {
@@ -40,41 +39,43 @@ class RegisterAd extends Component {
     tipDisabled: true,
     engines: [
       { key: "انتخاب حجم موتور", value: 0 },
-      { key: "1300", value: 1300 },
-      { key: "1600", value: 1600 },
-      { key: "1800", value: 1800 },
-      { key: "2000", value: 2000 },
+      // { key: "1300", value: 1300 },
+      // { key: "1600", value: 1600 },
+      // { key: "1800", value: 1800 },
+      // { key: "2000", value: 2000 },
     ],
     engineValue: 0,
     engineDisabled: true,
     gears: [
       { key: "انتخاب گیربکس", value: 0 },
-      { key: "اتوماتیک", value: 1 },
-      { key: "دستی", value: 2 },
-      { key: "هر دو", value: 3 },
+      // { key: "اتوماتیک", value: 1 },
+      // { key: "دستی", value: 2 },
+      // { key: "هر دو", value: 3 },
     ],
     gearValue: 0,
     gearDisabled: true,
     differentials: [
       { key: "انتخاب دیفرانسیل", value: 0 },
-      { key: "عقب", value: 1 },
-      { key: "جلو", value: 2 },
-      { key: "هر دو محور", value: 3 },
+      // { key: "عقب", value: 1 },
+      // { key: "جلو", value: 2 },
+      // { key: "هر دو محور", value: 3 },
     ],
     differentialValue: 0,
     differentialDisabled: true,
     fuels: [
       { key: "انتخاب سوخت", value: 0 },
-      { key: "بنزینی", value: 1 },
-      { key: "گازوئیلی", value: 2 },
-      { key: "هیبرید", value: 3 },
-      { key: "بنزینی و هیبریدی", value: 4 },
+      // { key: "بنزینی", value: 1 },
+      // { key: "گازوئیلی", value: 2 },
+      // { key: "هیبرید", value: 3 },
+      // { key: "بنزینی و هیبریدی", value: 4 },
     ],
     fuelValue: 0,
     fuelDisabled: true,
+    kilometerNumber: "",
+    kilometerSelectedTick: false,
+    showKilometerSection: false,
   };
 
-  setProgressValue = (value) => {};
   brandsChangeHandler = (event) => {
     this.setState(
       {
@@ -124,7 +125,7 @@ class RegisterAd extends Component {
     );
 
     if (event.target.value > 0) {
-      this.props.progressValue(20);
+      this.props.progressValue(15);
       this.setState({
         modelDisabled: false,
       });
@@ -134,8 +135,8 @@ class RegisterAd extends Component {
   };
 
   modelsChangeHandler = (event) => {
-    this.setState({ modelValue: event.target.value });
     this.setState({
+      modelValue: event.target.value,
       yearValue: 0,
       yearDisabled: true,
       tipValue: 0,
@@ -151,18 +152,18 @@ class RegisterAd extends Component {
     });
 
     if (event.target.value !== 0) {
-      this.props.progressValue(30);
+      this.props.progressValue(20);
       this.setState({
         yearDisabled: false,
       });
     } else {
-      this.props.progressValue(20);
+      this.props.progressValue(15);
     }
   };
 
   yearsChangeHandler = (event) => {
-    this.setState({ yearValue: event.target.value });
     this.setState({
+      yearValue: event.target.value,
       tipValue: 0,
       tipDisabled: true,
       engineValue: 0,
@@ -175,18 +176,18 @@ class RegisterAd extends Component {
       fuelDisabled: true,
     });
     if (event.target.value > 0) {
-      this.props.progressValue(40);
+      this.props.progressValue(25);
       this.setState({
         tipDisabled: false,
       });
     } else {
-      this.props.progressValue(30);
+      this.props.progressValue(20);
     }
   };
 
   tipsChangeHandler = (event) => {
-    this.setState({ tipValue: event.target.value });
     this.setState({
+      tipValue: event.target.value,
       engineValue: 0,
       engineDisabled: true,
       gearValue: 0,
@@ -195,21 +196,23 @@ class RegisterAd extends Component {
       differentialDisabled: true,
       fuelValue: 0,
       fuelDisabled: true,
+      showKilometerSection: false,
     });
 
     if (event.target.value > 0) {
-      this.props.progressValue(50);
+      this.props.progressValue(30);
       this.setState({
         engineDisabled: false,
+        showKilometerSection: true,
       });
     } else {
-      this.props.progressValue(40);
+      this.props.progressValue(25);
     }
   };
 
   enginesChangeHandler = (event) => {
-    this.setState({ engineValue: event.target.value });
     this.setState({
+      engineValue: event.target.value,
       gearValue: 0,
       gearDisabled: true,
       differentialValue: 0,
@@ -219,18 +222,18 @@ class RegisterAd extends Component {
     });
 
     if (event.target.value > 0) {
-      this.props.progressValue(60);
+      this.props.progressValue(33);
       this.setState({
         gearDisabled: false,
       });
     } else {
-      this.props.progressValue(50);
+      this.props.progressValue(30);
     }
   };
 
   gearsChangeHandler = (event) => {
-    this.setState({ gearValue: event.target.value });
     this.setState({
+      gearValue: event.target.value,
       differentialValue: 0,
       differentialDisabled: true,
       fuelValue: 0,
@@ -238,75 +241,102 @@ class RegisterAd extends Component {
     });
 
     if (event.target.value > 0) {
-      this.props.progressValue(70);
+      this.props.progressValue(36);
       this.setState({
         differentialDisabled: false,
       });
     } else {
-      this.props.progressValue(60);
+      this.props.progressValue(33);
     }
   };
 
   differentialsChangeHandler = (event) => {
-    this.setState({ differentialValue: event.target.value });
     this.setState({
+      differentialValue: event.target.value,
       fuelValue: 0,
       fuelDisabled: true,
     });
 
     if (event.target.value > 0) {
-      this.props.progressValue(80);
+      this.props.progressValue(39);
       this.setState({
         fuelDisabled: false,
       });
     } else {
-      this.props.progressValue(70);
+      this.props.progressValue(36);
     }
   };
 
   fuelsChangeHandler = (event) => {
-    this.setState({ fuelValue: event.target.value });
     this.setState({
+      fuelValue: event.target.value,
       // fuelValue: 0,
       // fuelDisabled: true,
     });
 
     if (event.target.value > 0) {
-      this.props.progressValue(90);
+      this.props.progressValue(42);
       this.setState({
         // fuelDisabled: false,
       });
     } else {
-      this.props.progressValue(80);
+      this.props.progressValue(39);
     }
   };
 
+  ZeroKilometerHandler = () => {
+    this.setState({
+      kilometerNumber: 0,
+      kilometerSelectedTick: true,
+    });
+    this.props.progressValue(50);
+  };
+
+  NonZeroKilometerHandler = () => {
+    this.setState({
+      kilometerNumber: "",
+      kilometerSelectedTick: false,
+    });
+    this.props.progressValue(42);
+  };
+  changeKilometerTextBoxHandler = (input) => {
+    this.setState({
+      kilometerNumber: +input.target.value,
+      kilometerSelectedTick: true,
+    });
+    this.props.progressValue(50);
+  };
+
   render() {
+    let kilometerSectionClasses = [styles.KilometerSection];
+    if (!this.state.showKilometerSection) {
+      kilometerSectionClasses = [styles.KilometerSection, styles.Hidden];
+    }
     return (
       <div>
         <section className={styles.BrandSection}>
-          <RegisterSelectBox
+          <UsedCarsSelectBox
             options={this.state.brands}
             changed={this.brandsChangeHandler}
             currentValue={this.state.brandValue}
             isDisabled={this.state.brandDisabled}
             isHidable={false}
           />
-          <RegisterSelectBox
+          <UsedCarsSelectBox
             options={this.state.models}
             changed={this.modelsChangeHandler}
             currentValue={this.state.modelValue}
             isDisabled={this.state.modelDisabled}
             isHidable={false}
           />
-          <RegisterSelectBox
+          <UsedCarsSelectBox
             options={this.state.years}
             changed={this.yearsChangeHandler}
             currentValue={this.state.yearValue}
             isDisabled={this.state.yearDisabled}
             isHidable={false}
           />
-          <RegisterSelectBox
+          <UsedCarsSelectBox
             options={this.state.tips}
             changed={this.tipsChangeHandler}
             currentValue={this.state.tipValue}
@@ -314,7 +344,7 @@ class RegisterAd extends Component {
             isHidable={false}
           />
           <div className={styles.HalfColumns}>
-            <RegisterSelectBox
+            <UsedCarsSelectBox
               options={this.state.engines}
               changed={this.enginesChangeHandler}
               currentValue={this.state.engineValue}
@@ -322,7 +352,7 @@ class RegisterAd extends Component {
               isHidable={true}
               display="half"
             />
-            <RegisterSelectBox
+            <UsedCarsSelectBox
               options={this.state.gears}
               changed={this.gearsChangeHandler}
               currentValue={this.state.gearValue}
@@ -330,7 +360,7 @@ class RegisterAd extends Component {
               isHidable={true}
               display="half"
             />
-            <RegisterSelectBox
+            <UsedCarsSelectBox
               options={this.state.differentials}
               changed={this.differentialsChangeHandler}
               currentValue={this.state.differentialValue}
@@ -338,7 +368,7 @@ class RegisterAd extends Component {
               isHidable={true}
               display="half"
             />
-            <RegisterSelectBox
+            <UsedCarsSelectBox
               options={this.state.fuels}
               changed={this.fuelsChangeHandler}
               currentValue={this.state.fuelValue}
@@ -348,8 +378,14 @@ class RegisterAd extends Component {
             />
           </div>
         </section>
-        <section className={styles.KilometerSection}>
-          <Kilometer progressValue={this.props.progressValue} />
+        <section className={kilometerSectionClasses.join(" ")}>
+          <Kilometer
+            zeroKilometer={this.ZeroKilometerHandler}
+            nonZeroKilometer={this.NonZeroKilometerHandler}
+            changeKilometer={this.changeKilometerTextBoxHandler}
+            kilometerNumber={this.state.kilometerNumber}
+            selectedTick={this.state.kilometerSelectedTick}
+          />
         </section>
       </div>
     );

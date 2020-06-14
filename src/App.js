@@ -1,12 +1,13 @@
 import React from 'react';
 
-import './App.css';
 import Layout from "./hoc/Layout/Layout";
 import Register from "./components/Register/Register";
 
+import styles from './App.module.css';
+
 function App() {
   return (
-    <div>
+    <div className={styles.App}>
       <Layout>
           <Register />
       </Layout>

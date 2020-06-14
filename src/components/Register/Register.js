@@ -3,8 +3,6 @@ import React, { Component, Fragment } from "react";
 import ProgressBar from "../UI/ProgressBar/ProgressBar";
 import RegisterAd from "./RegisterAd/RegisterAd";
 
-import styles from "./Register.module.css";
-
 class Register extends Component {
   state = {
     progressValue: 10,

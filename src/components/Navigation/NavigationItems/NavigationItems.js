@@ -6,10 +6,13 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 
 const NavigationItems = (props) => (
   <ul className={styles.NavigationItems}>
-    <NavigationItem link="/" active>
-      Burger Builder
+    <NavigationItem link="/">
+      خرید خودرو
     </NavigationItem>
-    <NavigationItem link="/">Checkout</NavigationItem>
+    <NavigationItem link="/" active>فروش خودرو</NavigationItem>
+    <NavigationItem link="/">سفارش خودرو</NavigationItem>
+    <NavigationItem link="/">تماس با ما</NavigationItem>
+    <NavigationItem link="/">درباره ما</NavigationItem>
   </ul>
 );
 

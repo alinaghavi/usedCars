@@ -1,8 +1,4 @@
 .App {
-  text-align: center;
-}
-
-.Wrapper {
   max-width: 960px;
   margin: 0 auto;
   padding: 0;
@@ -10,12 +6,12 @@
   width: 100%
 }
 
-.Wrapper * {
+.App * {
   outline: none
 }
 
 @media(max-width: 960px) {
-  .Wrapper {
+  .App {
     overflow-x: hidden
   }
 }

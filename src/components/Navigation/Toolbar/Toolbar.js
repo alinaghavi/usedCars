@@ -7,15 +7,20 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
 
 const toolbar = (props) => (
-  <header className={styles.Toolbar}>
-    <DrawerToggle clicked={props.drawerToggleClicked} />
-    <div className={styles.Logo}>
-      <Logo />
-    </div>
-    <nav className={styles.DesktopOnly}>
-      <NavigationItems />
-    </nav>
-  </header>
+  <div className={styles.ToolbarWrapper}>
+    <header className={styles.Toolbar}>
+      <div className={styles.TopBar}></div>
+      <div className={styles.BottomBar}>
+        <DrawerToggle clicked={props.drawerToggleClicked} />
+        <div className={styles.Logo}>
+          <Logo />
+        </div>
+        <nav className={styles.DesktopOnly}>
+          <NavigationItems />
+        </nav>
+      </div>
+    </header>
+  </div>
 );
 
 export default toolbar;
