@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import axios from "axios";
+
 import styles from "./RegisterAd.module.css";
 
 import UsedCarsSelectBox from "../../UI/UsedCarsSelectBox/UsedCarsSelectBox";
@@ -97,14 +99,14 @@ class RegisterAd extends Component {
         fuelDisabled: true,
       },
       () => {
-        fetch(
-          `http://10.1.3.89:3535/API/Sales/GetModelsByBrand/${this.state.brandValue}`
-        )
-          .then((res) => res.json())
+        axios
+          .get(
+            `http://10.1.3.89:3535/API/Sales/GetModelsByBrand/${this.state.brandValue}`
+          )
           .then(
             (models) => {
               const oldBrands = this.state.models;
-              let newBrands = models.map((model) => {
+              let newBrands = models.data.map((model) => {
                 return {
                   key: model["name"],
                   value: model["englishname"],
